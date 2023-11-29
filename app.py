@@ -21,10 +21,10 @@ def greeting_post():
     form = GreetingForm()
     if not form.validate_on_submit():
         return flask.redirect('/')
-    return flask.redirect('/greeting?name=' + form.username.data)
+    return flask.redirect('/hello?name=' + form.username.data)
 
 
-@app.route('/greeting', methods=['GET'])
+@app.route('/hello', methods=['GET'])
 def greeting():
     return flask.render_template("greeting.html", name=request.args['name'])
 
